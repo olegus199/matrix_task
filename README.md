@@ -10,7 +10,7 @@ git clone https://github.com/olegus199/matrix_task.git
 ```
 2. Перейдите в директорию проекта
 ```bash
-cd only_task
+cd matrix_task
 ```
 3. Установите зависимости
 ```bash
