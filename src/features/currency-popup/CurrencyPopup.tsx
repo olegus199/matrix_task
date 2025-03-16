@@ -30,10 +30,10 @@ const CurrencyPopup: FC = () => {
 
   function submitAction(): undefined {
     if (selectedCurrencyItem) {
-      const { baseAsset, priceChangePercent, lastPrice, quoteAsset } = selectedCurrencyItem;
+      const { baseAsset, priceChangePercent, lastPrice, symbol } = selectedCurrencyItem;
       const portfolioItem: IPortfolioItem = {
         baseAsset,
-        quoteAsset,
+        symbol,
         amount: parseInt(currencyAmount),
         portfolioPercentage: 0,
         priceChangePercent,

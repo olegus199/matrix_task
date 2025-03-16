@@ -24,3 +24,5 @@ export interface CryptoMarketDataExcerpt {
   lastPrice: number;
   priceChangePercent: number;
 }
+
+export type TickerStreamData = Pick<CryptoMarketDataExcerpt, "lastPrice" | "priceChangePercent" | "symbol">
