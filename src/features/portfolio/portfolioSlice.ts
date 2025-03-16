@@ -16,8 +16,11 @@ interface PortfolioState {
   portfolioItems: IPortfolioItem[];
 }
 
+const initPortfolioItems = localStorage.getItem("portfolioItems");
+const parsed: IPortfolioItem[] | null = initPortfolioItems ? JSON.parse(initPortfolioItems) : null;
+
 const initialState: PortfolioState = {
-  portfolioItems: [],
+  portfolioItems: parsed ? parsed : [],
 };
 
 const portfolioSlice = createSlice({

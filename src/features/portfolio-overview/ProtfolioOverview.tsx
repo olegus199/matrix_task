@@ -40,6 +40,7 @@ const PortfolioOverview: FC = () => {
       };
     });
 
+    localStorage.setItem("portfolioItems", JSON.stringify(portfolio));
   }, [symbols]);
 
   return (
