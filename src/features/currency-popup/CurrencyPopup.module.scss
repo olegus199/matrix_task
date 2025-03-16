@@ -1,0 +1,232 @@
+@use "../../variables" as *;
+@use "../../mixins" as *;
+
+@keyframes fade_in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.popup_bg {
+  @include flex_center();
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  padding: 1rem;
+  background-color: rgba($black, .1);
+  backdrop-filter: blur(.25rem);
+  -webkit-backdrop-filter: blur(.25rem);
+  opacity: 0;
+  animation: fade_in $standard_transition forwards;
+}
+
+.popup_content {
+  width: 100%;
+  max-width: 24rem;
+  padding: 1.375rem 1.25rem;
+  border-radius: .75rem;
+  background-color: $white;
+}
+
+.header {
+  @include flex_space_between();
+}
+
+.title {
+  font-weight: 500;
+}
+
+.close_icon {
+  width: 1.125rem;
+  height: 1.125rem;
+  cursor: pointer;
+}
+
+.input_container {
+  position: relative;
+  margin-top: .875rem;
+}
+
+.search_icon {
+  position: absolute;
+  top: 50%;
+  left: .5rem;
+  transform: translateY(-50%);
+  color: $primary_200;
+}
+
+.search_input {
+  width: 100%;
+  padding: .5rem .5rem .5rem 1.75rem;
+  font-family: "Onset", sans-serif;
+  font-size: .875rem;
+  color: $black;
+  border: 1px solid $primary_200;
+  border-radius: .5rem;
+  background-color: $gray_300;
+  -webkit-appearance: none;
+  appearance: none;
+
+  &::placeholder {
+    color: $gray_100;
+    font-weight: 500;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+
+.crypto_label {
+  margin-top: 1.625rem;
+  font-size: .75rem;
+  font-weight: 500;
+  color: $gray_100;
+}
+
+.crypto_list {
+  @include custom_scrollbar($white, $gray_100);
+
+  max-height: 13rem;
+  margin-top: .625rem;
+}
+
+.li {
+  @include flex_space_between();
+
+  padding: .5rem .25rem;
+  font-size: .875rem;
+  font-weight: 500;
+  border-radius: .25rem;
+  cursor: pointer;
+
+  p:not(:last-child) {
+    margin-right: .25rem;
+  }
+
+  &:hover {
+    background-color: $gray_300;
+  }
+}
+
+.crypto_name {
+  width: 30%;
+}
+
+.price {
+  flex-grow: 1;
+}
+
+.price_change {
+  text-align: right;
+  color: $black;
+}
+
+.positive_change {
+  color: $supporting_green;
+}
+
+.negative_change {
+  color: $supporting_red;
+}
+
+.add_currency_group {
+  margin-top: 2.25rem;
+}
+
+.selected_currency {
+  font-size: .875rem;
+  font-weight: 500;
+}
+
+.amount_form {
+  margin-top: .75rem;
+}
+
+.amount_input {
+  padding: .25rem .375rem;
+  width: 100%;
+  font-family: "Onset", sans-serif;
+  font-size: .875rem;
+  border: none;
+  border-bottom: 1px solid $gray_100;
+  border-radius: 0;
+
+  &:focus {
+    outline: none;
+    border-bottom: 1px solid $black;
+  }
+
+  &::placeholder {
+    color: $gray_100;
+  }
+}
+
+.action_buttons {
+  @include flex_space_between();
+
+  margin-top: 1.625rem;
+}
+
+.action_button {
+  @include reset_button_defaults();
+
+  font-size: .875rem;
+  font-weight: 500;
+  transition: color $standard_transition;
+}
+
+.button_cancel {
+  color: $gray_100;
+  margin-right: .25rem;
+
+  &:hover {
+    color: $supporting_red;
+  }
+}
+
+.button_submit {
+  &:disabled {
+    opacity: .5;
+    pointer-events: none;
+  }
+}
+
+@media (max-height: 550px) {
+  .popup_bg {
+    display: block;
+    overflow-y: scroll;
+  }
+
+  .popup_content {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 400px) {
+  .popup_bg {
+    padding: 0;
+    display: block;
+    overflow-y: scroll;
+  }
+
+  .popup_content {
+    max-width: 100%;
+    min-height: 100%;
+    margin: 0 auto;
+    border-radius: 0;
+  }
+}
