@@ -1,0 +1,33 @@
+@use "../../variables" as *;
+@use "../../mixins" as *;
+
+.portfolio_row {
+  @include flex_align_center();
+  padding: 1.25rem 1.625rem;
+}
+
+.table_content_row {
+  background-color: $gray_300;
+  cursor: pointer;
+
+  &:nth-child(odd) {
+    background-color: $gray_200;
+  }
+}
+
+.portfolio_header {
+  background-color: $primary_100;
+  color: $white;
+}
+
+.item_cell {
+  width: calc(100% / 6);
+}
+
+.positive_change {
+  color: $supporting_green;
+}
+
+.negative_change {
+  color: $supporting_red;
+}
