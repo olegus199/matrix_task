@@ -1,0 +1,47 @@
+@use "../../variables" as *;
+@use "../../mixins" as *;
+
+.main_section {
+  padding: 5.75rem 1rem;
+}
+
+.content {
+  max-width: 70rem;
+  margin: 0 auto;
+}
+
+.header {
+  @include flex_space_between();
+}
+
+.h2 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.add_button {
+  @include reset_button_defaults();
+
+  padding: .75rem 1.5rem;
+  background-color: transparent;
+  color: $primary_200;
+  border: 1px solid $primary_200;
+  border-radius: 2rem;
+  transition: color $standard_transition, background-color $standard_transition;
+
+  &:hover {
+    background-color: $primary_200;
+    color: $white;
+  }
+}
+
+.portfolio_list {
+  margin-top: 5.75rem;
+  border-radius: .75rem;
+  overflow: hidden;
+}
+
+.no_items_msg {
+  width: fit-content;
+  margin: 0 auto;
+}
