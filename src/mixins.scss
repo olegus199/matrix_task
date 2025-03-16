@@ -48,3 +48,11 @@
     background-color: $primary_200;
   }
 }
+
+@mixin hide_scrollbar() {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

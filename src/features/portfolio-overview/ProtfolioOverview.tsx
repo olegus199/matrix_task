@@ -57,22 +57,24 @@ const PortfolioOverview: FC = () => {
             Добавить актив
           </button>
         </div>
-        <ul className={styles.portfolio_list}>
-          {portfolio.length === 0 ? (
-            <div className={styles.no_items_msg}>Добавтье ваш первый актив</div>
-          ) : (
-            <>
-              <PortfolioTableHeader />
-              {portfolio.map((item, idx) => (
-                <PortfolioItem
-                  key={idx}
-                  item={item}
-                  idx={idx}
-                />
-              ))}
-            </>
-          )}
-        </ul>
+        <div className={styles.portfolio_container}>
+          <ul className={styles.portfolio_list}>
+            {portfolio.length === 0 ? (
+              <div className={styles.no_items_msg}>Добавтье ваш первый актив</div>
+            ) : (
+              <>
+                <PortfolioTableHeader />
+                {portfolio.map((item, idx) => (
+                  <PortfolioItem
+                    key={idx}
+                    item={item}
+                    idx={idx}
+                  />
+                ))}
+              </>
+            )}
+          </ul>
+        </div>
       </div>
       {isVisible && (
         <CurrencyPopup />
